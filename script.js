@@ -90,7 +90,20 @@ let pestCounts = {};
 let donutChartInstance = null;
 let currentFile = null;
 
-// DOM Elements
+// DOM Elements Input File & Kamera
+const btnSelectFile = document.getElementById('btnSelectFile');
+const btnSelectCamera = document.getElementById('btnSelectCamera');
+const dropArea = document.getElementById('drop-area');
+const cameraContainer = document.getElementById('cameraContainer');
+const cameraVideo = document.getElementById('cameraVideo');
+const btnCapture = document.getElementById('btnCapture');
+const btnSwitchCamera = document.getElementById('btnSwitchCamera');
+const btnCloseCamera = document.getElementById('btnCloseCamera');
+
+let mediaStream = null;
+let currentFacingMode = 'environment'; // Default kamera belakang
+
+// DOM Elements Deteksi
 const imageInput = document.getElementById('imageInput');
 const uploadPreviewContainer = document.getElementById('uploadPreviewContainer');
 const sourcePreview = document.getElementById('sourcePreview');
@@ -100,7 +113,7 @@ const loadingSpinner = document.getElementById('loadingSpinner');
 const outputCanvas = document.getElementById('outputCanvas');
 const resultsContainer = document.getElementById('resultsContainer');
 
-// Dashboard Elements
+// DOM Elements Dashboard
 const dashTotalImages = document.getElementById('dashTotalImages');
 const dashTotalPests = document.getElementById('dashTotalPests');
 const dashPestTypes = document.getElementById('dashPestTypes');
@@ -113,10 +126,93 @@ const btnResetStats = document.getElementById('btnResetStats');
 
 
 // ==========================================
-// 2. EVENT LISTENERS & LOCALSTORAGE
+// 2. EVENT LISTENERS KAMERA & INPUT FILE
 // ==========================================
 
-// Muat data tersimpan dari LocalStorage saat halaman pertama kali dibuka
+// Switch Tampilan Mode Galeri vs Kamera
+btnSelectFile.addEventListener('click', () => {
+    stopCamera();
+    dropArea.classList.remove('hidden');
+    cameraContainer.classList.add('hidden');
+    btnSelectFile.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-[#1b4d3e] bg-[#1b4d3e] text-white font-bold text-sm transition-all shadow-sm";
+    btnSelectCamera.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-slate-300 bg-white text-slate-700 hover:border-[#1b4d3e] font-bold text-sm transition-all shadow-sm";
+});
+
+btnSelectCamera.addEventListener('click', () => {
+    dropArea.classList.add('hidden');
+    cameraContainer.classList.remove('hidden');
+    btnSelectCamera.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-[#1b4d3e] bg-[#1b4d3e] text-white font-bold text-sm transition-all shadow-sm";
+    btnSelectFile.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-slate-300 bg-white text-slate-700 hover:border-[#1b4d3e] font-bold text-sm transition-all shadow-sm";
+    startCamera(currentFacingMode);
+});
+
+// Jalankan Stream Kamera
+async function startCamera(facingMode = 'environment') {
+    stopCamera();
+    try {
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: { ideal: facingMode } },
+            audio: false
+        });
+        cameraVideo.srcObject = mediaStream;
+    } catch (err) {
+        console.error("Gagal mengakses kamera:", err);
+        alert("Tidak dapat mengakses kamera. Pastikan izin kamera telah diberikan pada peramban Anda.");
+    }
+}
+
+// Hentikan Stream Kamera
+function stopCamera() {
+    if (mediaStream) {
+        mediaStream.getTracks().forEach(track => track.stop());
+        mediaStream = null;
+    }
+}
+
+// Beralih Kamera Depan / Belakang
+btnSwitchCamera.addEventListener('click', () => {
+    currentFacingMode = (currentFacingMode === 'environment') ? 'user' : 'environment';
+    startCamera(currentFacingMode);
+});
+
+// Tutup Kamera
+btnCloseCamera.addEventListener('click', () => {
+    stopCamera();
+    cameraContainer.classList.add('hidden');
+    dropArea.classList.remove('hidden');
+    btnSelectFile.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-[#1b4d3e] bg-[#1b4d3e] text-white font-bold text-sm transition-all shadow-sm";
+    btnSelectCamera.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-slate-300 bg-white text-slate-700 hover:border-[#1b4d3e] font-bold text-sm transition-all shadow-sm";
+});
+
+// Ambil Foto dari Stream Kamera
+btnCapture.addEventListener('click', () => {
+    if (!mediaStream) return;
+
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = cameraVideo.videoWidth || 640;
+    tempCanvas.height = cameraVideo.videoHeight || 480;
+    const ctx = tempCanvas.getContext('2d');
+    ctx.drawImage(cameraVideo, 0, 0, tempCanvas.width, tempCanvas.height);
+
+    tempCanvas.toBlob((blob) => {
+        if (!blob) return;
+        currentFile = new File([blob], `camera_capture_${Date.now()}.jpg`, { type: 'image/jpeg' });
+        sourcePreview.src = URL.createObjectURL(blob);
+        uploadPreviewContainer.classList.remove('hidden');
+        
+        // Sembunyikan kamera setelah tangkapan foto
+        stopCamera();
+        cameraContainer.classList.add('hidden');
+        dropArea.classList.remove('hidden');
+    }, 'image/jpeg', 0.95);
+});
+
+
+// ==========================================
+// 3. EVENT LISTENERS UTAMA & LOCALSTORAGE
+// ==========================================
+
+// Muat data tersimpan dari LocalStorage
 window.addEventListener('DOMContentLoaded', () => {
     const savedImages = localStorage.getItem('dukuguard_total_images');
     const savedPests = localStorage.getItem('dukuguard_total_pests');
@@ -130,7 +226,7 @@ window.addEventListener('DOMContentLoaded', () => {
     updateDashboardStats();
 });
 
-// Handler saat file gambar dipilih oleh pengguna
+// Handler saat file gambar dipilih lewat Galeri
 imageInput.addEventListener('change', (e) => {
     if (e.target.files && e.target.files[0]) {
         currentFile = e.target.files[0];
@@ -192,18 +288,16 @@ btnAnalyze.addEventListener('click', async () => {
     }
 });
 
-// Cetak Laporan PDF (Perbaikan Masalah Kertas Putih Polos)
+// Cetak Laporan PDF
 if (btnExportPDF) {
     btnExportPDF.addEventListener('click', async () => {
         const element = document.getElementById('dashboardPrintContainer');
 
-        // Indikator loading sementara
         const originalText = btnExportPDF.innerHTML;
         btnExportPDF.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Memproses PDF...`;
         lucide.createIcons();
         btnExportPDF.disabled = true;
 
-        // Beri jeda agar rendering Chart.js canvas benar-benar stabil
         await new Promise(resolve => setTimeout(resolve, 500));
 
         const opt = {
@@ -255,7 +349,7 @@ if (btnResetStats) {
 
 
 // ==========================================
-// 3. FUNGSI PEMROSESAN & RENDERING CANVAS
+// 4. FUNGSI PEMROSESAN & RENDERING CANVAS
 // ==========================================
 
 function processDetectionResult(data) {
@@ -295,7 +389,7 @@ function processDetectionResult(data) {
             const conf = det.confidence || det.score || 0;
             detectedClasses.add(label.toString());
 
-            // Catat Statistik ke Dashboard State
+            // Catat Statistik
             totalPestsFound++;
             pestCounts[label] = (pestCounts[label] || 0) + 1;
 
@@ -336,7 +430,7 @@ function processDetectionResult(data) {
 
         outputCanvas.classList.remove('hidden');
         
-        // Perbarui tampilan Dashboard & Rekomendasi
+        // Perbarui Tampilan Dashboard & Rekomendasi
         updateDashboardStats();
         renderPestRecommendations(Array.from(detectedClasses));
     };
@@ -346,7 +440,7 @@ function processDetectionResult(data) {
 
 
 // ==========================================
-// 4. FUNGSI LOGIKA DASHBOARD & CHART.JS
+// 5. FUNGSI LOGIKA DASHBOARD & CHART.JS
 // ==========================================
 
 function updateDashboardStats() {
@@ -354,12 +448,12 @@ function updateDashboardStats() {
     const uniqueTypes = Object.keys(pestCounts).length;
     dashPestTypes.innerText = uniqueTypes;
 
-    // Simpan data terbaru ke LocalStorage
+    // Simpan ke LocalStorage
     localStorage.setItem('dukuguard_total_images', totalImagesAnalyzed);
     localStorage.setItem('dukuguard_total_pests', totalPestsFound);
     localStorage.setItem('dukuguard_pest_counts', JSON.stringify(pestCounts));
 
-    // Render Panel Kiri (Progress Bars Semua Hama)
+    // Render Progress Bars Semua Hama
     const sortedPests = Object.entries(pestCounts).sort((a, b) => b[1] - a[1]);
     
     if (sortedPests.length > 0) {
@@ -381,7 +475,7 @@ function updateDashboardStats() {
         allPestsContainer.innerHTML = `<p class="text-xs text-slate-400 py-12 text-center italic">Belum ada data deteksi. Lakukan analisis gambar di atas untuk melihat statistik.</p>`;
     }
 
-    // Render Panel Kanan (Subteks Top Classes)
+    // Render Subteks Top Classes
     topClassesSubtext.innerText = `${uniqueTypes} classes · ${totalPestsFound} predictions`;
 
     if (uniqueTypes > 0) {
@@ -428,7 +522,7 @@ function updateDashboardStats() {
             }
         });
 
-        // Render Legenda Kanan Diagram
+        // Render Legenda
         topClassesLegend.innerHTML = sortedPests.map(([name, count], idx) => {
             const percentage = ((count / totalPestsFound) * 100).toFixed(1);
             const color = colors[idx % colors.length];
@@ -454,7 +548,7 @@ function updateDashboardStats() {
 
 
 // ==========================================
-// 5. RENDERING KARTU REKOMENDASI OBAT
+// 6. RENDERING KARTU REKOMENDASI OBAT
 // ==========================================
 
 function renderPestRecommendations(classList) {
