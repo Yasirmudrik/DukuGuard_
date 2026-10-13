@@ -41,7 +41,7 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-8 text-sm font-semibold">
                     <a href="#beranda" class="hover:text-[#ccff00] transition-colors">Beranda</a>
-                    <a href="#cara-kerja" class="hover:text-[#ccff00] transition-colors">Cara Kerja</a>
+                    <a href="#cara-kerja" class="hover:text-[#ccff00] transition-colors">Cara Penggunaan</a>
                     <a href="#deteksi" class="hover:text-[#ccff00] transition-colors">Deteksi Hama</a>
                     <a href="#informasi" class="hover:text-[#ccff00] transition-colors">Daftar Hama</a>
                     <a href="#dashboard" class="hover:text-[#ccff00] transition-colors">Dashboard</a>
@@ -97,53 +97,93 @@
         </div>
     </section>
 
-    <!-- CARA KERJA SECTION -->
+    <!-- CARA PENGGUNAAN WEBSITE SECTION -->
     <section id="cara-kerja" class="py-16 bg-[#eef5ed] relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-[#2e7d32] font-bold text-xs tracking-widest uppercase mb-1 block">Proses Sederhana</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-[#1b4d3e]">Cara Kerja <span class="text-[#2e7d32]">DukuGuard AI</span></h2>
+                <span class="text-[#2e7d32] font-bold text-xs tracking-widest uppercase mb-1 block">Panduan Pengguna</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#1b4d3e]">Cara Penggunaan <span class="text-[#2e7d32]">Website</span></h2>
+                <p class="text-slate-600 mt-2 text-sm">Ikuti 3 langkah mudah berikut untuk mendeteksi hama tanaman duku secara otomatis.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 relative items-center">
+            <div class="grid md:grid-cols-3 gap-8 relative items-stretch">
                 <!-- LANGKAH 1 -->
-                <div class="bg-[#f7faf6] rounded-3xl p-8 border border-emerald-100/60 shadow-sm relative group hover:shadow-md transition-all">
-                    <span class="text-xs font-bold text-slate-400 block mb-6">01</span>
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-slate-700 shadow-sm mb-6 border border-slate-100">
-                        <i data-lucide="camera" class="w-6 h-6 text-[#2e7d32]"></i>
+                <div class="bg-white rounded-3xl p-6 border border-emerald-100 shadow-sm relative group hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-extrabold text-[#2e7d32] bg-emerald-100 px-3 py-1 rounded-full">LANGKAH 01</span>
+                            <i data-lucide="upload-cloud" class="w-6 h-6 text-[#2e7d32]"></i>
+                        </div>
+                        
+                        <div class="h-44 rounded-2xl bg-slate-100 overflow-hidden mb-5 border border-slate-200/80 relative">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Unggah atau Ambil Foto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/e2e8f0/1b4d3e?text=Ilustrasi+Upload+Foto'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 text-white text-xs font-semibold flex items-center gap-1">
+                                <i data-lucide="camera" class="w-3.5 h-3.5"></i> Ambil/Pilih Foto
+                            </span>
+                        </div>
+
+                        <h3 class="font-extrabold text-xl text-slate-800 mb-2">Pilih / Potret Foto</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Klik tombol <strong>Unggah Galeri</strong> untuk memilih foto daun/buah dari perangkat, atau klik <strong>Buka Kamera</strong> untuk memotret bagian tanaman secara langsung.
+                        </p>
                     </div>
-                    <h3 class="font-extrabold text-xl text-slate-800 mb-2">Ambil / Unggah Foto</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Pilih foto dari galeri atau potret langsung dengan kamera perangkat Anda.</p>
                 </div>
 
                 <!-- PANAH INDIKATOR 1 (Desktop) -->
-                <div class="hidden md:flex absolute left-[31%] top-1/2 -translate-y-1/2 z-10 text-slate-400 pointer-events-none">
-                    <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                <div class="hidden md:flex absolute left-[31.5%] top-1/2 -translate-y-1/2 z-10 text-[#2e7d32] pointer-events-none">
+                    <i data-lucide="chevron-right" class="w-8 h-8"></i>
                 </div>
 
                 <!-- LANGKAH 2 -->
-                <div class="bg-[#6b9062] rounded-3xl p-8 text-white shadow-lg relative group transform md:-translate-y-2 transition-all">
-                    <span class="text-xs font-bold text-emerald-200 block mb-6">02</span>
-                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-sm mb-6 backdrop-blur-md">
-                        <i data-lucide="cog" class="w-6 h-6 text-white animate-spin-slow"></i>
+                <div class="bg-white rounded-3xl p-6 border border-emerald-100 shadow-sm relative group hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-extrabold text-[#2e7d32] bg-emerald-100 px-3 py-1 rounded-full">LANGKAH 02</span>
+                            <i data-lucide="cpu" class="w-6 h-6 text-[#2e7d32]"></i>
+                        </div>
+                        
+                        <div class="h-44 rounded-2xl bg-slate-100 overflow-hidden mb-5 border border-slate-200/80 relative">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Mulai Analisis AI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/e2e8f0/1b4d3e?text=Ilustrasi+Analisis+AI'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 text-white text-xs font-semibold flex items-center gap-1">
+                                <i data-lucide="play" class="w-3.5 h-3.5"></i> Proses YOLOv11
+                            </span>
+                        </div>
+
+                        <h3 class="font-extrabold text-xl text-slate-800 mb-2">Klik Mulai Analisis</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pastikan pratinjau foto sudah benar, lalu tekan tombol <strong>Mulai Analisis Hama</strong>. Sistem AI YOLOv11 akan memproses gambar dalam beberapa detik.
+                        </p>
                     </div>
-                    <h3 class="font-extrabold text-xl text-white mb-2">Proses YOLOv11</h3>
-                    <p class="text-sm text-emerald-100 leading-relaxed">Gambar dianalisis oleh model YOLOv11 melalui API.</p>
                 </div>
 
                 <!-- PANAH INDIKATOR 2 (Desktop) -->
-                <div class="hidden md:flex absolute right-[31%] top-1/2 -translate-y-1/2 z-10 text-slate-400 pointer-events-none">
-                    <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                <div class="hidden md:flex absolute right-[31.5%] top-1/2 -translate-y-1/2 z-10 text-[#2e7d32] pointer-events-none">
+                    <i data-lucide="chevron-right" class="w-8 h-8"></i>
                 </div>
 
                 <!-- LANGKAH 3 -->
-                <div class="bg-[#f7faf6] rounded-3xl p-8 border border-emerald-100/60 shadow-sm relative group hover:shadow-md transition-all">
-                    <span class="text-xs font-bold text-slate-400 block mb-6">03</span>
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-slate-700 shadow-sm mb-6 border border-slate-100">
-                        <i data-lucide="search" class="w-6 h-6 text-[#2e7d32]"></i>
+                <div class="bg-white rounded-3xl p-6 border border-emerald-100 shadow-sm relative group hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-extrabold text-[#2e7d32] bg-emerald-100 px-3 py-1 rounded-full">LANGKAH 03</span>
+                            <i data-lucide="file-text" class="w-6 h-6 text-[#2e7d32]"></i>
+                        </div>
+                        
+                        <div class="h-44 rounded-2xl bg-slate-100 overflow-hidden mb-5 border border-slate-200/80 relative">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Lihat Hasil & Rekomendasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/e2e8f0/1b4d3e?text=Ilustrasi+Hasil+Deteksi'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 text-white text-xs font-semibold flex items-center gap-1">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Hasil & Penanganan
+                            </span>
+                        </div>
+
+                        <h3 class="font-extrabold text-xl text-slate-800 mb-2">Lihat Hasil & Obati</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Hasil deteksi (bounding box) akan muncul beserta tingkat akurasi (confidence), detail jenis hama, serta langkah penanganan dan rekomendasi obatnya.
+                        </p>
                     </div>
-                    <h3 class="font-extrabold text-xl text-slate-800 mb-2">Analisis Hasil</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">Lihat nama hama, confidence, gejala, dan tindakan.</p>
                 </div>
             </div>
         </div>
@@ -242,74 +282,240 @@
     <!-- INFORMASI HAMA UMUM SECTION -->
     <section id="informasi" class="py-16 bg-[#edf4ee]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-[#1b4d3e]">Informasi Hama Umum</h2>
-                <p class="text-slate-600 mt-2">Daftar lengkap 7 hama dan penyakit yang sering menyerang tanaman duku beserta gejala awal.</p>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-[#2e7d32] font-bold text-xs tracking-widest uppercase mb-1 block">Edukasi & Panduan Penanganan</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#1b4d3e]">Informasi Hama & Penyakit Duku</h2>
+                <p class="text-slate-600 mt-3 text-sm md:text-base leading-relaxed">
+                    Panduan detail mengenai ciri-ciri, gejala serangan, dan strategi penanganan terpadu untuk 7 jenis hama & penyakit utama yang sering menyerang tanaman duku.
+                </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
                 <!-- CARD 1: KUTU PUTIH -->
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 rounded-xl bg-slate-200 overflow-hidden mb-4">
-                        <img src="tuku putih.jpg" alt="Kutu Putih" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Kutu+Putih'">
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl bg-slate-200 overflow-hidden mb-5 relative">
+                            <img src="tuku putih.jpg" alt="Kutu Putih" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Kutu+Putih'">
+                            <span class="absolute top-3 left-3 bg-[#1b4d3e]/90 backdrop-blur-md text-[#ccff00] text-[10px] font-bold px-3 py-1 rounded-full uppercase">Hama Isap</span>
+                        </div>
+                        <h3 class="font-extrabold text-xl text-slate-800">Kutu Putih</h3>
+                        <p class="text-xs font-semibold text-[#2e7d32] italic mb-3">Pseudococcus sp.</p>
+                        
+                        <div class="space-y-2 text-xs text-slate-600 mb-4">
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block mb-0.5">🔍 Ciri & Gejala:</span>
+                                Tubuh dilapisi lapisan lilin putih seperti kapuk. Menghisap cairan pada pucuk daun, tangkai, dan dompolan buah muda sehingga buah kerdil, menguning, lalu gugur.
+                            </div>
+                            <div class="bg-amber-50 p-2.5 rounded-xl border border-amber-100/80 text-amber-900">
+                                <span class="font-bold block mb-0.5">⚠️ Dampak Sekunder:</span>
+                                Mengeluarkan embun madu yang memicu tumbuhnya jamur embun jelaga hitam pada daun.
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">KUTU PUTIH</h3>
-                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">Menghisap cairan daun & buah muda, meninggalkan lapisan bening lengket bercendawan hitam.</p>
+
+                    <div class="border-t border-slate-100 pt-3">
+                        <span class="text-xs font-extrabold text-slate-800 block mb-1 flex items-center gap-1">
+                            <i data-lucide="shield" class="w-3.5 h-3.5 text-[#2e7d32]"></i> Cara Penanganan:
+                        </span>
+                        <ul class="text-[11px] text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Pangkas cabang/daun yang terserang parah dan bakar.</li>
+                            <li>Semprot air bertekanan tinggi yang dicampur sabun cuci piring (2-3 ml/L).</li>
+                            <li>Aplikasi insektisida sistemik berbahan aktif <em>Imidakloprid</em> atau <em>Thiamethoxam</em>.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- CARD 2: JAMUR EMBUN JELAGA -->
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 rounded-xl bg-slate-200 overflow-hidden mb-4">
-                        <img src="JamurDaun.jpeg" alt="Jamur Embun Jelaga" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Jamur+Embun+Jelaga'">
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl bg-slate-200 overflow-hidden mb-5 relative">
+                            <img src="JamurDaun.jpeg" alt="Jamur Embun Jelaga" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Jamur+Embun+Jelaga'">
+                            <span class="absolute top-3 left-3 bg-[#1b4d3e]/90 backdrop-blur-md text-[#ccff00] text-[10px] font-bold px-3 py-1 rounded-full uppercase">Penyakit Jamur</span>
+                        </div>
+                        <h3 class="font-extrabold text-xl text-slate-800">Jamur Embun Jelaga</h3>
+                        <p class="text-xs font-semibold text-[#2e7d32] italic mb-3">Meliola sp. / Capnodium sp.</p>
+                        
+                        <div class="space-y-2 text-xs text-slate-600 mb-4">
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block mb-0.5">🔍 Ciri & Gejala:</span>
+                                Permukaan atas daun tertutup lapisan tipis hingga tebal berwarna hitam seperti jelaga/jelang. Lapisan ini menghambat proses fotosintesis tanaman secara drastis.
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">Jamur Embun Jelaga</h3>
-                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">Menyebabkan bercak cokelat kehitaman pada permukaan daun hingga daun gugur.</p>
+
+                    <div class="border-t border-slate-100 pt-3">
+                        <span class="text-xs font-extrabold text-slate-800 block mb-1 flex items-center gap-1">
+                            <i data-lucide="shield" class="w-3.5 h-3.5 text-[#2e7d32]"></i> Cara Penanganan:
+                        </span>
+                        <ul class="text-[11px] text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Basmi serangga pembawa embun madu (kutu putih/kutu daun) terlebih dahulu.</li>
+                            <li>Semprotkan fungisida kontak berbahan aktif <em>Mankozeb</em> atau <em>Tembaga Hidroksida</em>.</li>
+                            <li>Lakukan pemangkasan pembentukan tajuk agar sinar matahari masuk menyeluruh.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- CARD 3: LALAT BUAH -->
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 rounded-xl bg-slate-200 overflow-hidden mb-4">
-                        <img src="LalatBuah.jpg" alt="Lalat Buah" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Lalat+Buah'">
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl bg-slate-200 overflow-hidden mb-5 relative">
+                            <img src="LalatBuah.jpg" alt="Lalat Buah" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Lalat+Buah'">
+                            <span class="absolute top-3 left-3 bg-[#1b4d3e]/90 backdrop-blur-md text-[#ccff00] text-[10px] font-bold px-3 py-1 rounded-full uppercase">Hama Buah</span>
+                        </div>
+                        <h3 class="font-extrabold text-xl text-slate-800">Lalat Buah</h3>
+                        <p class="text-xs font-semibold text-[#2e7d32] italic mb-3">Bactrocera sp.</p>
+                        
+                        <div class="space-y-2 text-xs text-slate-600 mb-4">
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block mb-0.5">🔍 Ciri & Gejala:</span>
+                                Lalat betina menusuk kulit buah duku mendekati matang untuk menaruh telur. Muncul bintik hitam kecil bekas tusukan. Larva (belatung) memakan daging buah hingga membusuk dan gugur prematurely.
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">LALAT BUAH</h3>
-                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">Serangan Lalat buah menyuntikkan telur ke dalam buah, dan larvanya merusak daging buah, menyebabkan pembusukan dan bercak pada kulit buah.</p>
+
+                    <div class="border-t border-slate-100 pt-3">
+                        <span class="text-xs font-extrabold text-slate-800 block mb-1 flex items-center gap-1">
+                            <i data-lucide="shield" class="w-3.5 h-3.5 text-[#2e7d32]"></i> Cara Penanganan:
+                        </span>
+                        <ul class="text-[11px] text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Pasang perangkap atraktan berbahan <em>Methyl Eugenol</em> (ME) pada botol bekas.</li>
+                            <li>Kumpulkan dan kubur buah duku yang gugur/busuk minimal sejauh 50 cm.</li>
+                            <li>Bungkus dompolan buah saat masih muda atau semprot insektisida berbahan <em>Dimehipo</em>/<em>Profenaofos</em>.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- CARD 4: BACTERIAL SPOT -->
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 rounded-xl bg-slate-200 overflow-hidden mb-4">
-                        <img src="BacteriaSpot.jpg" alt="Bacterial Spot" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Bacterial+Spot'">
+                <!-- CARD 4: BACTERIAL SPOT (BERCAK DAUN) -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl bg-slate-200 overflow-hidden mb-5 relative">
+                            <img src="BacteriaSpot.jpg" alt="Bacterial Spot" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Bacterial+Spot'">
+                            <span class="absolute top-3 left-3 bg-[#1b4d3e]/90 backdrop-blur-md text-[#ccff00] text-[10px] font-bold px-3 py-1 rounded-full uppercase">Penyakit Bakteri</span>
+                        </div>
+                        <h3 class="font-extrabold text-xl text-slate-800">Bercak Bakteri (Bacterial Spot)</h3>
+                        <p class="text-xs font-semibold text-[#2e7d32] italic mb-3">Xanthomonas sp.</p>
+                        
+                        <div class="space-y-2 text-xs text-slate-600 mb-4">
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block mb-0.5">🔍 Ciri & Gejala:</span>
+                                Timbul bintik-bintik kecil seperti kebasahan (water-soaked) pada daun. Lama-kelamaan membesar menjadi bercak cokelat kehitaman berpola tidak beraturan dengan halo (lingkaran) kuning di sekelilingnya.
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">Bacterial_Spot (BERCAK DAUN)</h3>
-                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">Infeksi bakteri yang memicu timbulnya bintik/bercak kebasahan bertepi kuning di permukaan daun.</p>
+
+                    <div class="border-t border-slate-100 pt-3">
+                        <span class="text-xs font-extrabold text-slate-800 block mb-1 flex items-center gap-1">
+                            <i data-lucide="shield" class="w-3.5 h-3.5 text-[#2e7d32]"></i> Cara Penanganan:
+                        </span>
+                        <ul class="text-[11px] text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Semprotkan bakterisida / fungisida tembaga seperti <em>Tembaga Oksi-klorida</em> (Oxychloride).</li>
+                            <li>Hindari penyiraman tajuk dari atas secara berlebihan pada musim hujan.</li>
+                            <li>Pangkas daun terinfeksi dan terapkan sanitasi kebun yang ketat.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- CARD 5: TUNGAU -->
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 rounded-xl bg-slate-200 overflow-hidden mb-4">
-                        <img src="tungau.jpg" alt="Tungau" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Tungau'">
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl bg-slate-200 overflow-hidden mb-5 relative">
+                            <img src="tungau.jpg" alt="Tungau" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Tungau'">
+                            <span class="absolute top-3 left-3 bg-[#1b4d3e]/90 backdrop-blur-md text-[#ccff00] text-[10px] font-bold px-3 py-1 rounded-full uppercase">Hama Mikroskopis</span>
+                        </div>
+                        <h3 class="font-extrabold text-xl text-slate-800">Tungau Merah</h3>
+                        <p class="text-xs font-semibold text-[#2e7d32] italic mb-3">Tetranychus sp.</p>
+                        
+                        <div class="space-y-2 text-xs text-slate-600 mb-4">
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block mb-0.5">🔍 Ciri & Gejala:</span>
+                                Berukuran sangat kecil di bawah permukaan daun. Menghisap cairan sel daun hingga timbul bercak kekuningan samar, daun berubah menjadi warna keperakan/perunggu, mengkerut, dan menggulung.
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">tungau</h3>
-                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">Hama mikroskopis yang membuat permukaan bawah daun berubah warna kemerahan/perunggu dan menggulung.</p>
+
+                    <div class="border-t border-slate-100 pt-3">
+                        <span class="text-xs font-extrabold text-slate-800 block mb-1 flex items-center gap-1">
+                            <i data-lucide="shield" class="w-3.5 h-3.5 text-[#2e7d32]"></i> Cara Penanganan:
+                        </span>
+                        <ul class="text-[11px] text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Gunakan akarisida khusus (bukan insektisida biasa) berbahan <em>Abamektin</em> atau <em>Pyridaben</em>.</li>
+                            <li>Jaga kelembapan tanah dan tingkatkan intensitas penyiraman pada cuaca panas kencang.</li>
+                            <li>Semprotkan belerang (sulfur) wettable powder sebagai opsi organik.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- CARD 6: ANTRAKNOSA -->
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 rounded-xl bg-slate-200 overflow-hidden mb-4">
-                        <img src="JamurUpas.jpg" alt="Antraknosa" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Antraknosa'">
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 rounded-2xl bg-slate-200 overflow-hidden mb-5 relative">
+                            <img src="JamurUpas.jpg" alt="Antraknosa" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Antraknosa'">
+                            <span class="absolute top-3 left-3 bg-[#1b4d3e]/90 backdrop-blur-md text-[#ccff00] text-[10px] font-bold px-3 py-1 rounded-full uppercase">Penyakit Jamur</span>
+                        </div>
+                        <h3 class="font-extrabold text-xl text-slate-800">Antraknosa</h3>
+                        <p class="text-xs font-semibold text-[#2e7d32] italic mb-3">Colletotrichum gloeosporioides</p>
+                        
+                        <div class="space-y-2 text-xs text-slate-600 mb-4">
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <span class="font-bold text-slate-800 block mb-0.5">🔍 Ciri & Gejala:</span>
+                                Menyerang daun, bunga, dan buah. Pada buah muncul bercak cokelat hingga kehitaman yang cekung/melekuk melingkar. Menyebabkan busuk kering pada buah baik sebelum panen maupun pascapanen.
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">Antraknosa</h3>
-                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">Penyakit Antraknosa Adalah Infeksi jamur seperti Colletotrichum sp. sering menyebabkan bercak coklat berbentuk bulat atau tidak beraturan yang kemudian meluas dan menyebabkan kebusukan pada buah, terutama setelah dipanen.</p>
+
+                    <div class="border-t border-slate-100 pt-3">
+                        <span class="text-xs font-extrabold text-slate-800 block mb-1 flex items-center gap-1">
+                            <i data-lucide="shield" class="w-3.5 h-3.5 text-[#2e7d32]"></i> Cara Penanganan:
+                        </span>
+                        <ul class="text-[11px] text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Semprot fungisida sistemik berbahan aktif <em>Azoksistrobin</em>, <em>Difenokonazol</em>, atau <em>Benomil</em>.</li>
+                            <li>Rendam buah hasil panen sebentar dalam air hangat (± 45-50°C) selama 5 menit.</li>
+                            <li>Lakukan pemangkasan cabang mati dan pastikan sirkulasi udara baik.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- CARD 7: PENGGEREK BATANG -->
-                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 rounded-xl bg-slate-200 overflow-hidden mb-4">
-                        <img src="Penggerek Batang.jpg" alt="Penggerek Batang" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Penggerek+Batang'">
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-all flex flex-col justify-between md:col-span-2 lg:col-span-3">
+                    <div class="grid md:grid-cols-3 gap-6 items-center mb-4">
+                        <div class="h-48 rounded-2xl bg-slate-200 overflow-hidden relative md:col-span-1">
+                            <img src="Penggerek Batang.jpg" alt="Penggerek Batang" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/e2e8f0/475569?text=Penggerek+Batang'">
+                            <span class="absolute top-3 left-3 bg-[#1b4d3e]/90 backdrop-blur-md text-[#ccff00] text-[10px] font-bold px-3 py-1 rounded-full uppercase">Hama Batang</span>
+                        </div>
+                        <div class="md:col-span-2 space-y-3">
+                            <div>
+                                <h3 class="font-extrabold text-2xl text-slate-800">Penggerek Batang</h3>
+                                <p class="text-xs font-semibold text-[#2e7d32] italic">Rhytidodera sp. / Zeuzera sp.</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600">
+                                <span class="font-bold text-slate-800 block mb-1">🔍 Ciri-Ciri & Gejala Serangan Utama:</span>
+                                Larva memakan dan membuat saluran terowongan di dalam kayu batang atau cabang utama. Ditandai dengan ditemukannya lubang pada batang yang mengeluarkan kotoran/serbuk kayu halus basah. Menyebabkan pasokan nutrisi terputus sehingga cabang mengering, daun menguning mati mendadak, hingga batang utama patah.
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">PENGGEREK BATANG</h3>
-                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">Larva yang membuat lubang di dalam kayu batang, menyebabkan cabang mengering, rapuh, dan layu.</p>
+
+                    <div class="border-t border-slate-100 pt-4">
+                        <span class="text-xs font-extrabold text-slate-800 block mb-2 flex items-center gap-1">
+                            <i data-lucide="shield" class="w-4 h-4 text-[#2e7d32]"></i> Cara Penanganan Terpadu:
+                        </span>
+                        <div class="grid md:grid-cols-3 gap-3 text-xs text-slate-600">
+                            <div class="bg-emerald-50/50 p-3 rounded-xl border border-emerald-100">
+                                <span class="font-bold text-[#1b4d3e] block mb-1">1. Mekanis / Manual</span>
+                                Tusuk lubang penggerek menggunakan kawat runcing untuk membunuh larva di dalam, atau pangkas cabang yang terserang parah lalu dibakar.
+                            </div>
+                            <div class="bg-emerald-50/50 p-3 rounded-xl border border-emerald-100">
+                                <span class="font-bold text-[#1b4d3e] block mb-1">2. Injeksi / Sumbat Insektisida</span>
+                                Teteskan insektisida sistemik (seperti <em>Karbofuran</em> cair atau <em>Dichlorvos</em>) ke dalam lubang menggunakan spuit/suntikan, lalu tutup rapat lubang dengan tanah liat/dempul kayu.
+                            </div>
+                            <div class="bg-emerald-50/50 p-3 rounded-xl border border-emerald-100">
+                                <span class="font-bold text-[#1b4d3e] block mb-1">3. Sanitasi Kebun</span>
+                                Bersihkan kerak batang secara berkala dan lumuri pangkal batang dengan bubur Bordo (campuran kapur sirih & tembaga sulfat) untuk mencegah peneluran kembali.
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -317,9 +523,7 @@
     <!-- DASHBOARD SECTION -->
     <section id="dashboard" class="py-16 bg-[#e9f0e8]/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- DIBUNGKUS DALAM ELEMENT BERLATAR PUTIH AGAR CETAK PDF TIDAK KERTAS PUTIH POLOS -->
             <div id="dashboardPrintContainer" class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100">
-                <!-- JUDUL DASHBOARD & TOMBOL AKSI -->
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
                     <div class="flex items-center gap-2">
                         <i data-lucide="layout-dashboard" class="w-7 h-7 text-[#1b4d3e]"></i>
@@ -335,9 +539,7 @@
                     </div>
                 </div>
 
-                <!-- 3 KARTU METRIK / RINGKASAN ATAS -->
                 <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <!-- CARD 1: TOTAL GAMBAR DIANALISIS -->
                     <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center justify-center text-center">
                         <div class="p-3 bg-emerald-100 text-[#1b4d3e] rounded-xl mb-3">
                             <i data-lucide="image" class="w-7 h-7"></i>
@@ -346,7 +548,6 @@
                         <span class="text-xs font-semibold text-slate-500 mt-1">Total Gambar Dianalisis</span>
                     </div>
 
-                    <!-- CARD 2: TOTAL HAMA DITEMUKAN -->
                     <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center justify-center text-center">
                         <div class="p-3 bg-emerald-100 text-[#1b4d3e] rounded-xl mb-3">
                             <i data-lucide="bug" class="w-7 h-7"></i>
@@ -355,7 +556,6 @@
                         <span class="text-xs font-semibold text-slate-500 mt-1">Total Hama Ditemukan</span>
                     </div>
 
-                    <!-- CARD 3: JENIS HAMA -->
                     <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center justify-center text-center">
                         <div class="p-3 bg-emerald-100 text-[#1b4d3e] rounded-xl mb-3">
                             <i data-lucide="pie-chart" class="w-7 h-7"></i>
@@ -365,9 +565,7 @@
                     </div>
                 </div>
 
-                <!-- 2 PANEL BAWAH: STATISTIK SEMUA HAMA & ALL CLASSES DONUT CHART -->
                 <div class="grid md:grid-cols-2 gap-6">
-                    <!-- PANEL LEFT: STATISTIK HAMA -->
                     <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
                         <h3 class="font-bold text-[#1b4d3e] text-base mb-4 flex items-center gap-2">
                             <i data-lucide="bar-chart-2" class="w-4 h-4 text-emerald-600"></i> Statistik Hama Ditemukan
@@ -377,7 +575,6 @@
                         </div>
                     </div>
 
-                    <!-- PANEL RIGHT: TOP CLASSES DONUT CHART -->
                     <div class="bg-[#121417] text-white rounded-2xl p-6 shadow-lg border border-slate-800 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-4">
@@ -388,9 +585,7 @@
                                 <span class="bg-slate-800/80 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider border border-slate-700">YOLOv11 AI</span>
                             </div>
 
-                            <!-- DONUT CHART & LEGEND CONTAINER -->
                             <div id="donutWrapper" class="flex flex-col sm:flex-row items-center justify-between gap-6 my-2 min-h-[240px]">
-                                <!-- DONUT CANVAS -->
                                 <div class="relative w-44 h-44 flex-shrink-0 flex items-center justify-center">
                                     <canvas id="topClassesChart"></canvas>
                                     <div id="emptyChartOverlay" class="absolute inset-0 flex flex-col items-center justify-center text-center text-slate-500 text-xs px-2">
@@ -399,7 +594,6 @@
                                     </div>
                                 </div>
 
-                                <!-- LEGEND LISTING -->
                                 <div id="topClassesLegend" class="w-full space-y-2.5 text-xs max-h-[260px] overflow-y-auto pr-1">
                                     <p class="text-slate-500 text-center sm:text-left py-8 italic">Lakukan analisis gambar untuk melihat diagram prediksi.</p>
                                 </div>
@@ -418,7 +612,13 @@
         </div>
     </footer>
 
-    <!-- MEMANGGIL FILE JAVASCRIPT EKSTERNAL -->
+    <!-- SCRIPT JAVASCRIPT EKSTERNAL -->
     <script src="script.js"></script>
+    <script>
+        // Inisialisasi Lucide Icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
 </body>
 </html>
